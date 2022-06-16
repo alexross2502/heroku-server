@@ -13,3 +13,7 @@ const start = async () => {
   }
 };
 start();
+
+app.get("/api", (req, res) => {
+  res.status(200).json({ message: "working" });
+});
