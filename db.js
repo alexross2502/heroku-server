@@ -10,11 +10,9 @@ module.exports = new Sequelize(
     port: process.env.DATABASE_PORT,
   },
   {
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false,
     },
   }
 );
