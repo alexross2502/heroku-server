@@ -1,12 +1,13 @@
 const express = require("express");
 const app = express();
+const PORT = process.env.PORT;
 
 app.get("/", (req, res) => {
   res.status(200).json({ message: "working" });
 });
 const start = async () => {
   try {
-    app.listen(8000, () => console.log("start", 8000));
+    app.listen(PORT, () => console.log("start", PORT));
   } catch (e) {
     console.log(e);
   }
