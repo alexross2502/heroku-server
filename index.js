@@ -1,10 +1,9 @@
 const express = require("express");
 const app = express();
-//app.use(express.static(path.join(__dirname, "src")));
-app.get("/", (req, res) => {
-  console.log("123141");
-});
 
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "working" });
+});
 const start = async () => {
   try {
     app.listen(8000, () => console.log("start", 8000));
@@ -13,7 +12,3 @@ const start = async () => {
   }
 };
 start();
-
-app.get("/api", (req, res) => {
-  res.status(200).json({ message: "working" });
-});
