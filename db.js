@@ -1,7 +1,15 @@
+var fs = require("fs");
 const Sequelize = require("sequelize");
 
 const db = new Sequelize(
-  "postgres://ititgzusuanudv:668ac3dcba26593a96c2a4e589f3328709eb7a16a0e07898032152537636c4c5@ec2-54-228-125-183.eu-west-1.compute.amazonaws.com:5432/d757up2m55747"
+  "postgres://ititgzusuanudv:668ac3dcba26593a96c2a4e589f3328709eb7a16a0e07898032152537636c4c5@ec2-54-228-125-183.eu-west-1.compute.amazonaws.com:5432/d757up2m55747",
+  {
+    ssl: {
+      ca: fs.readFileSync(__dirname + "/server-ca.pem"),
+      cert: fs.readFileSync(__dirname + "/client-cert.pem"),
+      key: fs.readFileSync(__dirname + "/client-key.pem"),
+    },
+  }
 );
 const data = db.define("anime", {
   title: Sequelize.STRING,
