@@ -3,7 +3,7 @@ const app = express();
 const PORT = process.env.PORT;
 const cors = require("cors");
 const sequelize = require("./db");
-const models = require("./models/models");
+//const models = require("./models/models");
 
 app.use(cors());
 app.get("/", (req, res) => {
