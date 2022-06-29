@@ -1,8 +1,8 @@
 {
    
     "scripts": {
-      "server-start": "cd server && node ./index.js",
-      "client-start": "cd web && npm start",
+      "server-start": "cd server && npm install && npm start",
+      "client-start": "cd web && npm install && npm start",
       "start": "npm run client-start && npm run server-start"
     }
  
