@@ -4,6 +4,8 @@ const PORT = process.env.PORT;
 const cors = require("cors");
 const sequelize = require("./db");
 const models = require("./models/models");
+const router = require("./routes/index");
+const errorHandler = require("./middleware/ErrorHandlingMiddleware");
 
 app.use(cors());
 app.get("/", (req, res) => {
