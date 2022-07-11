@@ -21,3 +21,13 @@ Masters.hasMany(Reservation, {
 Reservation.hasOne(Masters, {
   constraints: false,
 });
+
+Towns.hasMany(Reservation, {
+  sourceKey: "id",
+  foreignKey: "master_id",
+  constraints: false,
+});
+
+Towns.hasOne(Masters, {
+  constraints: false,
+});
