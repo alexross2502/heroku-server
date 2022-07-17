@@ -16,19 +16,18 @@ class ReservationController {
 
 async function create(day, start, end, master_id) {
   try {
-    const { day, start, end, master_id } = req.body;
+    const { day, start, end, master_id, towns_id } = req.body;
     const reservation = await Reservation.create({
       day,
       start,
       end,
       master_id,
+      towns_id,
     });
     return res.json(reservation);
   } catch (e) {
     next(ApiError.badRequest(e.message));
   }
 }
-
-//create("das", 13, 14);
 
 module.exports = new ReservationController();
