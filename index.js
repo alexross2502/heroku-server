@@ -9,7 +9,7 @@ const errorHandler = require("./middleware/ErrorHandlingMiddleware");
 
 app.use(
   cors({
-    origin: "https://test123451234512345.herokuapp.com",
+    origin: "*",
   })
 );
 app.use(express.json());
