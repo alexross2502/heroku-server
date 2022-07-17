@@ -14,7 +14,7 @@ class ReservationController {
   }
 }
 
-async function create(day, start, end, master_id) {
+async function create(day, start, end, master_id, towns_id) {
   try {
     const { day, start, end, master_id, towns_id } = req.body;
     const reservation = await Reservation.create({
