@@ -13,7 +13,7 @@ class ReservationController {
     return res.json(reservation);
   }
 
-  async create(day, start, end, master_id, towns_id) {
+  async create(req, res, next) {
     try {
       const { day, start, end, master_id, towns_id } = req.body;
       const reservation = await Reservation.create({
