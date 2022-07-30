@@ -12,21 +12,21 @@ class ReservationController {
     const reservation = await Reservation.destroy({ where: { id: id } });
     return res.json(reservation);
   }
-}
 
-async function create(day, start, end, master_id, towns_id) {
-  try {
-    const { day, start, end, master_id, towns_id } = req.body;
-    const reservation = await Reservation.create({
-      day,
-      start,
-      end,
-      master_id,
-      towns_id,
-    });
-    return res.json(reservation);
-  } catch (e) {
-    next(ApiError.badRequest(e.message));
+  async create(day, start, end, master_id, towns_id) {
+    try {
+      const { day, start, end, master_id, towns_id } = req.body;
+      const reservation = await Reservation.create({
+        day,
+        start,
+        end,
+        master_id,
+        towns_id,
+      });
+      return res.json(reservation);
+    } catch (e) {
+      next(ApiError.badRequest(e.message));
+    }
   }
 }
 
