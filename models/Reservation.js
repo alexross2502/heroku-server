@@ -9,8 +9,7 @@ const Reservation = sequelize.define("reservation", {
     unique: true,
   },
   day: { type: DataTypes.STRING, allowNull: false },
-  start: { type: DataTypes.INTEGER, allowNull: false },
-  end: { type: DataTypes.INTEGER, allowNull: false },
+  hours: { type: DataTypes.STRING, allowNull: false },
 });
 
 module.exports = { Reservation };
