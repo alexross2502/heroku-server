@@ -15,11 +15,10 @@ class ReservationController {
 
   async create(req, res, next) {
     try {
-      const { day, start, end, master_id, towns_id } = req.body;
+      const { day, hours, master_id, towns_id } = req.body;
       const reservation = await Reservation.create({
         day,
-        start,
-        end,
+        hours,
         master_id,
         towns_id,
       });
