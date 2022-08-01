@@ -27,6 +27,18 @@ class ReservationController {
       next(ApiError.badRequest(e.message));
     }
   }
+
+  async getAvailable(req, res, next) {
+    try {
+      const { towns_id } = req.body;
+      let availability = await Reservation.findAll({
+        where: { towns_id: towns_id },
+      });
+      return res.json(reservation);
+    } catch (e) {
+      next(ApiError.badRequest(e.message));
+    }
+  }
 }
 
 module.exports = new ReservationController();
