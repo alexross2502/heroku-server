@@ -34,7 +34,7 @@ class ReservationController {
       let availability = await Reservation.findAll({
         where: { towns_id: towns_id },
       });
-      return res.json(reservation);
+      return res.json(availability);
     } catch (e) {
       next(ApiError.badRequest(e.message));
     }
