@@ -22,6 +22,12 @@ class MastersController {
     const master = await Masters.destroy({ where: { id: id } });
     return res.json(master);
   }
+
+  async getAvailable(req, res) {
+    const { name } = req.params;
+    const master = await Masters.findAll({ where: { townName: name } });
+    return res.json(master);
+  }
 }
 
 module.exports = new MastersController();
