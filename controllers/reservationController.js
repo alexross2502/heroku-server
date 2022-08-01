@@ -2,8 +2,14 @@ const { Reservation } = require("../models/models");
 const ApiError = require("../error/ApiError");
 
 class ReservationController {
-  async getAll(req, res) {
+  /*async getAll(req, res) {
     const reservation = await Reservation.findAll();
+    return res.json(reservation);
+  }*/
+  async getAll(req, res) {
+    const reservation = await Reservation.findAll({
+      where: { day: "23.11.2022" },
+    });
     return res.json(reservation);
   }
 
