@@ -8,7 +8,7 @@ class ReservationController {
   }*/
   async getAll(req, res) {
     const reservation = await Reservation.findAll({
-      where: { day: "23.11.2022" },
+      where: { towns_id: "18" },
     });
     return res.json(reservation);
   }
