@@ -36,9 +36,9 @@ class ReservationController {
 
   async getAvailable(req, res, next) {
     try {
-      const { towns_id } = req.body;
+      const { id } = req.body;
       let availability = await Reservation.findAll({
-        where: { towns_id: towns_id },
+        where: { towns_id: id },
       });
       return res.json(availability);
     } catch (e) {
