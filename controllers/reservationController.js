@@ -2,14 +2,8 @@ const { Reservation } = require("../models/models");
 const ApiError = require("../error/ApiError");
 
 class ReservationController {
-  /*async getAll(req, res) {
-    const reservation = await Reservation.findAll();
-    return res.json(reservation);
-  }*/
   async getAll(req, res) {
-    const reservation = await Reservation.findAll({
-      where: { towns_id: "18" },
-    });
+    const reservation = await Reservation.findAll();
     return res.json(reservation);
   }
 
@@ -36,7 +30,7 @@ class ReservationController {
 
   async getAvailable(req, res, next) {
     try {
-      const { id } = req.body;
+      const { id } = req.params;
       let availability = await Reservation.findAll({
         where: { towns_id: id },
       });
